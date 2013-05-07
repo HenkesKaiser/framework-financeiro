@@ -259,7 +259,7 @@ public class JpaService
 			else if (part.endsWith("Like")) {
 				String prop = extractProp(part, "Like");
 				// HSQL -> LCASE, all other dbs lower
-				if (isHSQL()) {
+				if (true) {
 					jpql.append("LCASE(").append(prop).append(") like ?")
 							.append(index++);
 				}
@@ -270,7 +270,7 @@ public class JpaService
 			}
 			else if (part.endsWith("Ilike")) {
 				String prop = extractProp(part, "Ilike");
-				if (isHSQL()) {
+				if (true) {
 					jpql.append("LCASE(").append(prop).append(") like LCASE(?")
 							.append(index++).append(")");
 				}

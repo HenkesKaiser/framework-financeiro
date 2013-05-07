@@ -1,10 +1,8 @@
 package famework.core.security;
 
-import java.io.File;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
 import java.security.PublicKey;
 
 import javax.crypto.BadPaddingException;
@@ -131,24 +129,25 @@ class ExemploCriptografia
 	{
 		// -- Gera o par de chaves, em dois arquivos (chave.publica e
 		// chave.privada)
-		GeradorParChaves gpc = new GeradorParChaves();
-		gpc.geraParChaves(new File("chave.publica"), new File("chave.privada"));
-
-		// -- Cifrando a mensagem "Hello, world!"
-		byte[] textoClaro = "Hello, world!".getBytes("ISO-8859-1");
-		CarregadorChavePublica ccp = new CarregadorChavePublica();
-		PublicKey pub = ccp.carregaChavePublica(new File("chave.publica"));
-		RSA cf = new RSA();
-		byte[][] cifrado = cf.cifra(pub, textoClaro);
-		printHex(cifrado[0]);
-		printHex(cifrado[1]);
+		// GeradorParChaves gpc = new GeradorParChaves();
+		// gpc.geraParChaves(new File("chave.publica"), new
+		// File("chave.privada"));
+		//
+		// // -- Cifrando a mensagem "Hello, world!"
+		// byte[] textoClaro = "Hello, world!".getBytes("ISO-8859-1");
+		// CarregadorChavePublica ccp = new CarregadorChavePublica();
+		// PublicKey pub = ccp.carregaChavePublica(new File("chave.publica"));
+		// RSA cf = new RSA();
+		// byte[][] cifrado = cf.cifra(pub, textoClaro);
+		// printHex(cifrado[0]);
+		// printHex(cifrado[1]);
 
 		// -- Decifrando a mensagem
-		CarregadorChavePrivada ccpv = new CarregadorChavePrivada();
-		PrivateKey pvk = ccpv.carregaChavePrivada(new File("chave.privada"));
-		Decifrador dcf = new Decifrador();
-		byte[] decifrado = dcf.decifra(pvk, cifrado[0], cifrado[1]);
-		// System.out.println (new String (textoClaro, "ISO-8859-1"));
-		printHex(decifrado);
+		// CarregadorChavePrivada ccpv = new CarregadorChavePrivada();
+		// PrivateKey pvk = ccpv.carregaChavePrivada(new File("chave.privada"));
+		// Decifrador dcf = new Decifrador();
+		// byte[] decifrado = dcf.decifra(pvk, cifrado[0], cifrado[1]);
+		// // System.out.println (new String (textoClaro, "ISO-8859-1"));
+		// printHex(decifrado);
 	}
 }
